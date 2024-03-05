@@ -1,18 +1,26 @@
 "use client"
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import FormWrapper from "./form-wrapper"
-
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import { RegisterSchema } from "@/schemas/auth"
-import { Input } from "../ui/input"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Button } from "../ui/button"
-import { LoginButton } from "./login-button"
-import Link from "next/link"
+import { FormSuccess } from "../form-success"
+import { FormError } from "../form-error"
+import { Input } from "../ui/input"
+
+import { RegisterSchema } from "@/schemas/auth"
+import { register } from "@/actions/register"
+
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { useFormStatus } from "react-dom"
+import { useState, useTransition } from "react"
 
 export function FormRegister() {
+    const [success, setSuccess] = useState<string | undefined>(undefined)
+    const [error, setError] = useState<string | undefined>(undefined)
+    const [isPending, startTransition] = useTransition()
+
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues: {
@@ -23,7 +31,16 @@ export function FormRegister() {
     })
 
     const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
-        console.log({ values })
+        setSuccess(undefined)
+        setError(undefined)
+
+        startTransition(async () => {
+            const { error, success } = await register(values)
+            form.reset()
+
+            setSuccess(success)
+            setError(error)
+        })
     }
 
     return (
@@ -44,7 +61,7 @@ export function FormRegister() {
                                 <FormItem>
                                     <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="john Doe" {...field} />
+                                        <Input disabled={isPending} placeholder="john Doe" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -57,7 +74,12 @@ export function FormRegister() {
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="example@mail.com" {...field} />
+                                        <Input
+                                            disabled={isPending}
+                                            type="email"
+                                            placeholder="example@mail.com"
+                                            {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -70,14 +92,17 @@ export function FormRegister() {
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="******" {...field} />
+                                        <Input disabled={isPending} type="password" placeholder="******" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
 
-                        <Button type="submit" className=" w-full">
+                        <FormSuccess message={success!} />
+                        <FormError message={error!} />
+
+                        <Button disabled={isPending} type="submit" className=" w-full">
                             Create an account
                         </Button>
                     </form>

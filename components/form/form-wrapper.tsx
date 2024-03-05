@@ -7,7 +7,7 @@ import { Social } from "./social"
 
 interface FormWrapperProps {
     title: string
-    description: string
+    description?: string
     children: React.ReactNode
     showSocial?: boolean
     backButtonLabel?: string
@@ -17,7 +17,7 @@ interface FormWrapperProps {
 function FormWrapper({ title, description, children, showSocial, backButtonLabel, backButtonHref }: FormWrapperProps) {
     return (
         <>
-            <Card>
+            <Card className="p-4">
                 <CardHeader>
                     <CardTitle className=" text-center">{title}</CardTitle>
                     <CardDescription className=" text-center">{description}</CardDescription>

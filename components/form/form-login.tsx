@@ -9,10 +9,26 @@ import { z } from "zod"
 import { loginSchema } from "@/schemas/auth"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
-import { LoginButton } from "./login-button"
 import Link from "next/link"
+import { FormError } from "../form-error"
+import { useState, useTransition } from "react"
+import { login } from "@/actions/login"
+import { useRouter, useSearchParams } from "next/navigation"
+import { signIn, useSession } from "next-auth/react"
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 
 export function FormLogin() {
+    const router = useRouter()
+    const { status } = useSession()
+
+    const [isPending, startTransition] = useTransition()
+
+    const searchParams = useSearchParams()
+    const callbackUrl = searchParams.get("callbackUrl")
+
+    const [error, setError] = useState<string | undefined>(undefined)
+    const [success, setSuccess] = useState<string | undefined>(undefined)
+
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -22,7 +38,19 @@ export function FormLogin() {
     })
 
     const onSubmit = (values: z.infer<typeof loginSchema>) => {
-        console.log({ values })
+        signIn("credentials", {
+            email: values.email,
+            password: values.password,
+            callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT,
+        })
+
+        setSuccess(undefined)
+        setError(undefined)
+
+        startTransition(() => {
+            login(values, callbackUrl)
+            form.reset()
+        })
     }
 
     return (
@@ -43,7 +71,7 @@ export function FormLogin() {
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="example@mail.com" {...field} />
+                                        <Input type="email" placeholder="example@mail.com" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -56,7 +84,7 @@ export function FormLogin() {
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="******" {...field} />
+                                        <Input type="password" placeholder="******" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                     <Button size="sm" variant="link" className="px-0 font-normal">
@@ -65,9 +93,10 @@ export function FormLogin() {
                                 </FormItem>
                             )}
                         />
+                        <FormError message={error} />
 
                         <div>
-                            <Button type="submit" className=" w-full">
+                            <Button disabled={isPending} type="submit" className=" w-full">
                                 Login
                             </Button>
                         </div>
