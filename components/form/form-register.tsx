@@ -6,36 +6,50 @@ import FormWrapper from "./form-wrapper"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { loginSchema } from "@/schemas/auth"
+import { RegisterSchema } from "@/schemas/auth"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { LoginButton } from "./login-button"
 import Link from "next/link"
 
-export function FormLogin() {
-    const form = useForm<z.infer<typeof loginSchema>>({
-        resolver: zodResolver(loginSchema),
+export function FormRegister() {
+    const form = useForm<z.infer<typeof RegisterSchema>>({
+        resolver: zodResolver(RegisterSchema),
         defaultValues: {
+            name: "",
             email: "",
             password: "",
         },
     })
 
-    const onSubmit = (values: z.infer<typeof loginSchema>) => {
+    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
         console.log({ values })
     }
 
     return (
         <div className=" w-96">
             <FormWrapper
-                title="Sign In"
-                description="Welcome back"
+                title="Sign Up"
+                description="Create an account"
                 showSocial={true}
-                backButtonLabel="Not have account ?"
-                backButtonHref="/auth/register"
+                backButtonLabel="Already have an account ?"
+                backButtonHref="/auth/login"
             >
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-4">
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Name</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="john Doe" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                         <FormField
                             control={form.control}
                             name="email"
@@ -59,18 +73,13 @@ export function FormLogin() {
                                         <Input placeholder="******" {...field} />
                                     </FormControl>
                                     <FormMessage />
-                                    <Button size="sm" variant="link" className="px-0 font-normal">
-                                        <Link href={"/auth/reset"}>Forgot password ?</Link>
-                                    </Button>
                                 </FormItem>
                             )}
                         />
 
-                        <div>
-                            <Button type="submit" className=" w-full">
-                                Login
-                            </Button>
-                        </div>
+                        <Button type="submit" className=" w-full">
+                            Create an account
+                        </Button>
                     </form>
                 </Form>
             </FormWrapper>
