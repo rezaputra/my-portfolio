@@ -4,10 +4,10 @@ import { loginSchema } from "@/schemas/auth"
 import { getUserByEmail } from "@/data/user"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 
-import { signIn } from "@/auth"
 import * as z from "zod"
 import { AuthError } from "next-auth"
-import { redirect } from "next/navigation"
+import { signIn } from "@/auth"
+import { revalidatePath } from "next/cache"
 
 export async function login(values: z.infer<typeof loginSchema>, callbackUrl?: string | null) {
     const validateFields = loginSchema.safeParse(values)
@@ -26,7 +26,18 @@ export async function login(values: z.infer<typeof loginSchema>, callbackUrl?: s
     // TODO: Check email is verified and send email to verified user email
 
     try {
-        await signIn("credentials", { email, password, redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT })
+        const redirectUrl = await signIn("credentials", {
+            email,
+            password,
+            redirect: false,
+            redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
+        })
+
+        if (redirectUrl) {
+            return {
+                redirect: redirectUrl,
+            }
+        }
     } catch (error) {
         if (error instanceof AuthError) {
             switch (error.type) {

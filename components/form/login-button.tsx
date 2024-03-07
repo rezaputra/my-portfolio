@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog"
 import { FormLogin } from "./form-login"
+import { useSession } from "next-auth/react"
 
 interface LoginButtonProps {
     children: React.ReactNode
@@ -12,6 +13,7 @@ interface LoginButtonProps {
 
 export function LoginButton({ children, mode = "redirect", asChild }: LoginButtonProps) {
     const router = useRouter()
+    const { data } = useSession()
 
     const onClick = () => {
         router.push("/auth/login")

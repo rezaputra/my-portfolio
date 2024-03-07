@@ -1,20 +1,19 @@
 "use client"
 
-import { signOut, useSession } from "next-auth/react"
-import { LoginButton } from "./form/login-button"
-import { Button } from "./ui/button"
-import { useEffect, useState } from "react"
+import { UserIcon } from "@/components/user/user-icon"
+import { LoginButton } from "@/components/form/login-button"
+import { useCurrentUser } from "@/hooks/use-current-user"
+import { Button } from "@/components/ui/button"
+
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
+
 import Link from "next/link"
 
 function MainNav() {
-    const { data } = useSession()
-
-    const logout = () => {
-        signOut()
-    }
+    const user = useCurrentUser()
 
     return (
-        <div className=" w-full h-16 shadow-sm ">
+        <nav className=" w-full h-16 shadow-sm ">
             <div className=" container flex justify-between items-center h-full">
                 <div>
                     <Button variant="secondary">
@@ -22,15 +21,15 @@ function MainNav() {
                     </Button>
                 </div>
                 <div>
-                    {data && <Button onClick={logout}>Logout</Button>}
-                    {!data && (
+                    {user && <UserIcon />}
+                    {!user && (
                         <LoginButton asChild>
                             <Button variant="outline">Sign In</Button>
                         </LoginButton>
                     )}
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

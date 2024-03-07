@@ -1,17 +1,5 @@
-import { auth } from "auth"
-
-async function MarketingPage() {
-    const session = await auth()
-
-    return (
-        <div>
-            {session && (
-                <div>
-                    <p>{session.user?.name}</p>
-                </div>
-            )}
-        </div>
-    )
+function MarketingPage() {
+    return <div>Enter</div>
 }
 
 export default MarketingPage

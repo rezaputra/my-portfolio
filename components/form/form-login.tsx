@@ -1,26 +1,23 @@
 "use client"
 
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
+import { FormError } from "../form-error"
 import FormWrapper from "./form-wrapper"
 
+import { loginSchema } from "@/schemas/auth"
+import { login } from "@/actions/login"
+
+import Link from "next/link"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useState, useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { loginSchema } from "@/schemas/auth"
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
-import Link from "next/link"
-import { FormError } from "../form-error"
-import { useState, useTransition } from "react"
-import { login } from "@/actions/login"
-import { useRouter, useSearchParams } from "next/navigation"
-import { signIn, useSession } from "next-auth/react"
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 
 export function FormLogin() {
     const router = useRouter()
-    const { status } = useSession()
-
     const [isPending, startTransition] = useTransition()
 
     const searchParams = useSearchParams()
@@ -37,19 +34,16 @@ export function FormLogin() {
         },
     })
 
-    const onSubmit = (values: z.infer<typeof loginSchema>) => {
-        signIn("credentials", {
-            email: values.email,
-            password: values.password,
-            callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT,
-        })
-
+    const onSubmit = async (values: z.infer<typeof loginSchema>) => {
         setSuccess(undefined)
         setError(undefined)
 
-        startTransition(() => {
-            login(values, callbackUrl)
+        startTransition(async () => {
+            const res = await login(values, callbackUrl)
             form.reset()
+
+            if (res?.error) setError(res.error)
+            if (res?.redirect) router.push(res?.redirect)
         })
     }
 

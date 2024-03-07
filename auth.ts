@@ -10,6 +10,8 @@ import { UserRole } from "@prisma/client"
 import { db } from "./lib/db"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { getAccountByUserId } from "./data/account"
+import { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, authRoutes, publicRoutes } from "./routes"
+import { NextResponse } from "next/server"
 
 declare module "next-auth" {
     interface User {
@@ -45,9 +47,20 @@ const config = {
     callbacks: {
         authorized({ request, auth }) {
             const { pathname } = request.nextUrl
-            const privateRoutes = ["/meet", "/server"]
+            const isLoggedIn = !!auth
 
-            if (privateRoutes.includes(pathname)) return !!auth
+            const isApiAuthRoute = pathname.startsWith(apiAuthPrefix)
+            const isAuthRoute = authRoutes.includes(pathname)
+            const isPublicRoute = publicRoutes.includes(pathname)
+
+            if (isApiAuthRoute) return true
+
+            if (isAuthRoute) {
+                if (isLoggedIn) return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, request.nextUrl))
+                return true
+            }
+
+            if (!isPublicRoute) return isLoggedIn
 
             return true
         },

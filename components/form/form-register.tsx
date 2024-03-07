@@ -10,11 +10,10 @@ import { Input } from "../ui/input"
 import { RegisterSchema } from "@/schemas/auth"
 import { register } from "@/actions/register"
 
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { useFormStatus } from "react-dom"
 import { useState, useTransition } from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 
 export function FormRegister() {
     const [success, setSuccess] = useState<string | undefined>(undefined)
