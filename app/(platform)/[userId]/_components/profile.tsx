@@ -43,7 +43,7 @@ export function Profile({ user, provider }: AccountProps) {
                     <p>Account type</p>
                     <Separator className=" opacity-60 mb-4 mt-1" />
                     <div className=" space-y-2">
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-2">
                             <p className="text-sm font-light">{user.role}</p>
                             <code className="text-sm font-light">{user.id}</code>
                         </div>
@@ -56,7 +56,7 @@ export function Profile({ user, provider }: AccountProps) {
                         {user.emailVerified && (
                             <div className="space-y-2">
                                 <div className="flex space-x-2 items-center">
-                                    <blockquote className="text-sm font-light">Verified </blockquote>
+                                    <blockquote className="text-sm font-light">Verified</blockquote>
                                     <MdOutlineVerified className="w-4 h-4" />
                                 </div>
                                 <p className="text-sm font-light">{user.emailVerified?.toLocaleDateString()}</p>

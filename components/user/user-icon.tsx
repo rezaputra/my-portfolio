@@ -22,7 +22,7 @@ import { MdOutlineSettings } from "react-icons/md"
 import { MdOutlineMeetingRoom } from "react-icons/md"
 
 import {} from "react-icons"
-import { signOut, useSession } from "next-auth/react"
+import { signOut } from "next-auth/react"
 import Link from "next/link"
 
 export function UserIcon() {
@@ -62,11 +62,20 @@ export function UserIcon() {
                         </DropdownMenuSubTrigger>
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent>
-                                <Link href={`/${user.id}?tab=appointment&section=create`}>
-                                    <DropdownMenuItem>Create</DropdownMenuItem>
-                                </Link>
-                                <Link href={`/${user.id}?tab=appointment&section=schedule`}>
+                                <Link
+                                    href={{
+                                        pathname: `${user.id}`,
+                                        query: { tab: "appointment", section: "schedule" },
+                                    }}
+                                    target="_top"
+                                >
                                     <DropdownMenuItem>Schedule</DropdownMenuItem>
+                                </Link>
+                                <Link
+                                    href={{ pathname: `${user.id}`, query: { tab: "appointment", section: "create" } }}
+                                    target="_top"
+                                >
+                                    <DropdownMenuItem>Create</DropdownMenuItem>
                                 </Link>
                             </DropdownMenuSubContent>
                         </DropdownMenuPortal>

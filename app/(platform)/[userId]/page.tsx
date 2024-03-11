@@ -8,7 +8,7 @@ import { getUserById } from "@/data/user"
 import { currentUser } from "@/lib/auth"
 
 import { notFound } from "next/navigation"
-import { Toaster } from "sonner"
+import { Toaster } from "@/components/ui/sonner"
 
 interface UserIdPageProps {
     params: {
@@ -34,7 +34,7 @@ async function UserIdPage({ params, searchParams }: UserIdPageProps) {
             <Toaster />
             <Profile user={userData} provider={account?.provider} />
             <Appointment />
-            <Setting user={userData} isOAuth={!!account} />
+            <Setting isOAuth={!!account} />
         </PlatForm>
     )
 }

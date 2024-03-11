@@ -16,14 +16,16 @@ import { Separator } from "@/components/ui/separator"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { setting } from "@/actions/setting"
 import { toast } from "sonner"
+import { useCurrentUser } from "@/hooks/use-current-user"
 
 interface SettingProps {
-    user: User
     isOAuth: boolean
 }
 
-export function Setting({ user, isOAuth }: SettingProps) {
+export function Setting({ isOAuth }: SettingProps) {
     const [isPending, startTransition] = useTransition()
+
+    const user = useCurrentUser()
 
     const params = useSearchParams()
     const tab = params.get("tab")
@@ -33,13 +35,12 @@ export function Setting({ user, isOAuth }: SettingProps) {
     const form = useForm<z.infer<typeof SettingSchema>>({
         resolver: zodResolver(SettingSchema),
         defaultValues: {
-            name: user.name || undefined,
-            email: user.email || undefined,
+            name: user?.name || undefined,
+            email: user?.email || undefined,
             password: undefined,
             newPassword: undefined,
         },
     })
-
     if (tab !== "setting" || !user) return null
 
     const onSubmit = (values: z.infer<typeof SettingSchema>) => {
