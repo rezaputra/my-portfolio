@@ -13,6 +13,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { SlOptions } from "react-icons/sl"
 import { View } from "./view"
 import { Appointment } from "@prisma/client"
+import { Edit } from "./edit"
+import { Cancel } from "./cancel"
 
 interface OptionsProps {
     appointment: Appointment
@@ -50,12 +52,45 @@ export function Options({ appointment }: OptionsProps) {
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
-                <Button size="sm" variant="ghost" className=" justify-start w-full">
-                    Edit
-                </Button>
-                <Button size="sm" variant="ghost" className=" justify-start w-full">
-                    Cancel
-                </Button>
+
+                <Dialog>
+                    <DialogTrigger disabled={appointment.status !== "WAITING"} className=" justify-start w-full">
+                        <Button
+                            size="sm"
+                            disabled={appointment.status !== "WAITING"}
+                            variant="ghost"
+                            className=" justify-start w-full"
+                        >
+                            Edit
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent className=" w-max p-10">
+                        <DialogHeader>
+                            <DialogTitle>Edit</DialogTitle>
+                            <DialogDescription>Edit your current information</DialogDescription>
+                        </DialogHeader>
+                        <Edit appointment={appointment} />
+                    </DialogContent>
+                </Dialog>
+                <Dialog>
+                    <DialogTrigger disabled={appointment.status !== "WAITING"} className=" justify-start w-full">
+                        <Button
+                            size="sm"
+                            disabled={appointment.status !== "WAITING"}
+                            variant="ghost"
+                            className=" justify-start w-full"
+                        >
+                            Cancel
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Cancel</DialogTitle>
+                            <DialogDescription>Cancel your appointment ?</DialogDescription>
+                        </DialogHeader>
+                        <Cancel id={appointment.id} />
+                    </DialogContent>
+                </Dialog>
             </PopoverContent>
         </Popover>
     )
