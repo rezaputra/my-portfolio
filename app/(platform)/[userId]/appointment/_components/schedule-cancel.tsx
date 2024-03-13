@@ -17,7 +17,7 @@ import { Appointment } from "@prisma/client"
 import { DialogClose } from "@/components/ui/dialog"
 import { cancelAppointment } from "@/actions/cancel-appointment"
 
-export function Cancel({ id }: { id: string }) {
+export function ScheduleCancel({ id }: { id: string }) {
     const [error, setError] = useState<string | undefined>(undefined)
     const [success, setSuccess] = useState<string | undefined>(undefined)
 

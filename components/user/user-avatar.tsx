@@ -25,7 +25,7 @@ import {} from "react-icons"
 import { signOut } from "next-auth/react"
 import Link from "next/link"
 
-export function UserIcon() {
+export function UserAvatar() {
     const user = useCurrentUser()
 
     if (!user) return null
@@ -43,13 +43,12 @@ export function UserIcon() {
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className=" min-w-64">
-                {/* <DropdownMenuLabel className="m-2">{user?.name}</DropdownMenuLabel> */}
                 <DropdownMenuLabel className="m-2 text-sm font-normal text-muted-foreground">
                     {user.email}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <Link href={`/${user.id}?tab=profile`}>
+                    <Link href={`/${user.id}`}>
                         <DropdownMenuItem>
                             <CgProfile className=" w-4 h-4 mr-2" />
                             Profile
@@ -63,24 +62,24 @@ export function UserIcon() {
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent>
                                 <Link
-                                    href={{
-                                        pathname: `${user.id}`,
-                                        query: { tab: "appointment", section: "schedule" },
-                                    }}
                                     target="_top"
+                                    href={{
+                                        pathname: `/${user.id}/appointment`,
+                                        query: { tab: "schedule" },
+                                    }}
                                 >
                                     <DropdownMenuItem>Schedule</DropdownMenuItem>
                                 </Link>
                                 <Link
-                                    href={{ pathname: `${user.id}`, query: { tab: "appointment", section: "create" } }}
                                     target="_top"
+                                    href={{ pathname: `/${user.id}/appointment`, query: { tab: "create" } }}
                                 >
                                     <DropdownMenuItem>Create</DropdownMenuItem>
                                 </Link>
                             </DropdownMenuSubContent>
                         </DropdownMenuPortal>
                     </DropdownMenuSub>
-                    <Link href={`/${user.id}?tab=setting`}>
+                    <Link href={`/${user.id}/setting`}>
                         <DropdownMenuItem>
                             <MdOutlineSettings className="w-4 h-4 mr-2" />
                             Setting

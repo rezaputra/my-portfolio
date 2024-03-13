@@ -11,22 +11,17 @@ import {
 } from "@/components/ui/dialog"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { SlOptions } from "react-icons/sl"
-import { View } from "./view"
+
 import { Appointment } from "@prisma/client"
-import { Edit } from "./edit"
-import { Cancel } from "./cancel"
+import { ScheduleView } from "./schedule-view"
+import { ScheduleEdit } from "./schadule-edit"
+import { ScheduleCancel } from "./schedule-cancel"
 
-interface OptionsProps {
-    appointment: Appointment
-}
-
-export function Options({ appointment }: OptionsProps) {
+export function ScheduleOptions({ appointment }: { appointment: Appointment }) {
     return (
         <Popover>
             <PopoverTrigger>
-                <Button className="p-0" variant="ghost" size="icon">
-                    <SlOptions className=" w-4 h-4" />
-                </Button>
+                <SlOptions className=" w-4 h-4" />
             </PopoverTrigger>
             <PopoverContent className=" p-2 max-w-28">
                 <Dialog>
@@ -42,7 +37,7 @@ export function Options({ appointment }: OptionsProps) {
                                 Created at {new Date(appointment.createdAt).toDateString()}
                             </DialogDescription>
                         </DialogHeader>
-                        <View appointment={appointment} />
+                        <ScheduleView appointment={appointment} />
                         <DialogFooter className=" justify-end mt-4">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary">
@@ -69,7 +64,7 @@ export function Options({ appointment }: OptionsProps) {
                             <DialogTitle>Edit</DialogTitle>
                             <DialogDescription>Edit your current information</DialogDescription>
                         </DialogHeader>
-                        <Edit appointment={appointment} />
+                        <ScheduleEdit appointment={appointment} />
                     </DialogContent>
                 </Dialog>
                 <Dialog>
@@ -88,7 +83,7 @@ export function Options({ appointment }: OptionsProps) {
                             <DialogTitle>Cancel</DialogTitle>
                             <DialogDescription>Cancel your appointment ?</DialogDescription>
                         </DialogHeader>
-                        <Cancel id={appointment.id} />
+                        <ScheduleCancel id={appointment.id} />
                     </DialogContent>
                 </Dialog>
             </PopoverContent>

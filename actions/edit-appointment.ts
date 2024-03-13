@@ -9,6 +9,7 @@ import moment from "moment-timezone"
 import devTime from "@/constants/dev-time.json"
 import { currentUser } from "@/lib/auth"
 import { db } from "@/lib/db"
+import { revalidatePath } from "next/cache"
 
 export async function editAppointment(values: z.infer<typeof editAppointmentSchema>) {
     const validateFields = editAppointmentSchema.safeParse(values)
@@ -47,7 +48,9 @@ export async function editAppointment(values: z.infer<typeof editAppointmentSche
         data: { userId, datetime: convertedDate, phone, describe, size, industry },
     })
 
+    revalidatePath(`/${userId}/appointment?tab=schedule`)
+
     return {
-        success: `Appointment successfully updated, Refresh page`,
+        success: `Appointment successfully updated`,
     }
 }

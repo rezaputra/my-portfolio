@@ -5,6 +5,7 @@ import { z } from "zod"
 
 import { currentUser } from "@/lib/auth"
 import { db } from "@/lib/db"
+import { revalidatePath } from "next/cache"
 
 export async function cancelAppointment(id: string) {
     const user = await currentUser()
@@ -20,7 +21,9 @@ export async function cancelAppointment(id: string) {
         data: { status: "CANCELED" },
     })
 
+    revalidatePath(`/${user.id}/appointment?tab=schedule`)
+
     return {
-        success: `Appointment successfully canceled, Refresh page`,
+        success: `Appointment successfully canceled`,
     }
 }

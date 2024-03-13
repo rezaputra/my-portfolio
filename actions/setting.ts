@@ -33,8 +33,6 @@ export async function setting(values: z.infer<typeof SettingSchema>) {
         const existingUser = await getUserByEmail(values.email)
 
         if (existingUser) return { error: "Email already in use" }
-
-        // TODO: Generate verification email end send it to client email
     }
 
     if (values.password && values.newPassword && dbUser.password) {
@@ -53,6 +51,6 @@ export async function setting(values: z.infer<typeof SettingSchema>) {
         data: { ...values },
     })
 
-    revalidatePath(`/${dbUser.id}?tab=setting`)
+    revalidatePath(`/${dbUser.id}/setting`)
     return { success: "Settings updated" }
 }

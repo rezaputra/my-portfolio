@@ -1,5 +1,6 @@
+"use client"
+
 import moment from "moment-timezone"
-import { Options } from "./options"
 import { Appointment } from "@prisma/client"
 
 import { TbClockQuestion } from "react-icons/tb"
@@ -11,15 +12,16 @@ import { TbCalendarQuestion } from "react-icons/tb"
 import { LuCalendarCheck } from "react-icons/lu"
 import { LuCalendarX2 } from "react-icons/lu"
 import { LuCalendarHeart } from "react-icons/lu"
+import { ScheduleOptions } from "./schedule-options"
 
 interface AppointmentItemProps {
     appointment: Appointment
 }
 
-export function AppointmentItem({ appointment }: AppointmentItemProps) {
+export function ScheduleItem({ appointment }: AppointmentItemProps) {
     return (
         <div className="flex flex-col items-center w-full border rounded-sm rounded-r-md">
-            <div className=" md:flex items-center justify-between w-full p-4 py-2">
+            <div className=" md:flex items-center h-14 justify-between w-full p-4 py-2">
                 <div className=" flex space-x-4 items-center">
                     {appointment.status === "WAITING" && <TbCalendarQuestion className="w-4 h-4" />}
                     {appointment.status === "CONFIRM" && <LuCalendarCheck className="w-4 h-4" />}
@@ -37,7 +39,7 @@ export function AppointmentItem({ appointment }: AppointmentItemProps) {
                     <span className=" lowercase text-muted-foreground text-sm">{appointment.status}</span>
                 </div>
                 <div>
-                    <Options appointment={appointment} />
+                    <ScheduleOptions appointment={appointment} />
                 </div>
             </div>
         </div>

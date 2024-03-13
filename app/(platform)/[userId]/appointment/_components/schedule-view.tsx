@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -17,11 +19,7 @@ import { TbClockCheck } from "react-icons/tb"
 import { TbClockX } from "react-icons/tb"
 import { TbClockHeart } from "react-icons/tb"
 
-interface ViewProps {
-    appointment: Appointment
-}
-
-export function View({ appointment }: ViewProps) {
+export function ScheduleView({ appointment }: { appointment: Appointment }) {
     return (
         <div className=" flex flex-col space-y-4 mt-2">
             <div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { UserIcon } from "@/components/user/user-icon"
+import { UserAvatar } from "@/components/user/user-avatar"
 import { LoginButton } from "@/components/form/login-button"
 import { useCurrentUser } from "@/hooks/use-current-user"
 import { Button } from "@/components/ui/button"
@@ -21,7 +21,7 @@ function MainNav() {
                     </Button>
                 </div>
                 <div>
-                    {user && <UserIcon />}
+                    {user && <UserAvatar />}
                     {!user && (
                         <LoginButton asChild>
                             <Button variant="outline">Sign In</Button>

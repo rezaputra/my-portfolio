@@ -28,7 +28,7 @@ import { FormError } from "@/components/form-error"
 import { FormSuccess } from "@/components/form-success"
 import { editAppointment } from "@/actions/edit-appointment"
 
-export function Edit({ appointment }: { appointment: Appointment }) {
+export function ScheduleEdit({ appointment }: { appointment: Appointment }) {
     const router = useRouter()
     const { id, userId, datetime, industry, size, phone, describe } = appointment
 

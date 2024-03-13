@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils"
 
 import { useForm } from "react-hook-form"
 import { createAppointmentSchema } from "@/schemas/appointment"
-import { useRouter, useSearchParams } from "next/navigation"
+import { notFound, useRouter, useSearchParams } from "next/navigation"
 import { useCurrentUser } from "@/hooks/use-current-user"
 import { useTransition } from "react"
 import { addMonths, addDays, format, isWeekend } from "date-fns"
@@ -28,9 +28,7 @@ import { createAppointment } from "@/actions/create-appointment"
 
 import { toast } from "sonner"
 
-export function Create({ userId }: { userId: string }) {
-    const router = useRouter()
-
+export function FormCreate({ userId }: { userId: string | undefined }) {
     const devTimeZone = devTime.timezone
     const clientTimezone = moment.tz.guess()
     const clientToday = new Date()
@@ -41,7 +39,7 @@ export function Create({ userId }: { userId: string }) {
     const user = useCurrentUser()
 
     const date = params.get("date") || addDays(clientToday, 1)
-    const time = params.get("time") || "09:00"
+    const time = params.get("time") || "10:00"
 
     const selectDate = new Date(date)
 
@@ -52,17 +50,11 @@ export function Create({ userId }: { userId: string }) {
                 .then((res) => {
                     form.reset()
                     if (res?.error) {
-                        toast.warning(res.error, { action: { label: "Cancel", onClick() {} } })
+                        toast.warning(res.error)
                     }
                     if (res?.success) {
                         toast.success(res.success, {
                             description: "We will sent meeting link to your email",
-                            action: {
-                                label: "Confirm",
-                                onClick() {
-                                    router.push(`${userId}?tab=appointment`)
-                                },
-                            },
                         })
                     }
                 })
@@ -85,12 +77,10 @@ export function Create({ userId }: { userId: string }) {
             userId: userId,
             date: new Date(),
             time: time,
-            phone: "",
-            industry: "",
-            size: "",
-            describe: "",
         },
     })
+
+    if (!user) return null
 
     const isDateDisabled = (date: Date) => {
         const currentDevTime = moment.tz(date, devTimeZone)
@@ -101,7 +91,7 @@ export function Create({ userId }: { userId: string }) {
     }
 
     return (
-        <div className=" space-y-4 border rounded-md p-8">
+        <div className=" space-y-4 border rounded-md p-8 mt-4">
             <div>
                 <h2 className=" scroll-m-20 text-xl font-semibold tracking-tight">Create appointment</h2>
                 <span className=" text-muted-foreground text-sm">Make your own appointment</span>
@@ -109,7 +99,6 @@ export function Create({ userId }: { userId: string }) {
             <Form {...form}>
                 <form className=" space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
                     <div className="  grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 items-center">
-                        <Input type="hidden" value={userId} />
                         <FormField
                             control={form.control}
                             name="date"
