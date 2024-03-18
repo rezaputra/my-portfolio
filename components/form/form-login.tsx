@@ -1,19 +1,19 @@
 "use client"
 
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { FormError } from "../form-error"
+import { Button } from "../ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
+import { Input } from "../ui/input"
 import FormWrapper from "./form-wrapper"
 
-import { loginSchema } from "@/schemas/auth"
 import { login } from "@/actions/login"
+import { loginSchema } from "@/schemas/auth"
 
+import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useState, useTransition } from "react"
 import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 
 export function FormLogin() {
@@ -43,7 +43,9 @@ export function FormLogin() {
             form.reset()
 
             if (res?.error) setError(res.error)
-            if (res?.redirect) router.push(res?.redirect)
+            if (res?.redirect) {
+                router.push(res?.redirect)
+            }
         })
     }
 

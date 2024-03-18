@@ -1,10 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 import { Appointment } from "@prisma/client"
 
@@ -14,10 +9,7 @@ import { GiStopwatch } from "react-icons/gi"
 import { LuClock2 } from "react-icons/lu"
 import { MdOutlineCalendarToday } from "react-icons/md"
 
-import { TbClockQuestion } from "react-icons/tb"
-import { TbClockCheck } from "react-icons/tb"
-import { TbClockX } from "react-icons/tb"
-import { TbClockHeart } from "react-icons/tb"
+import { TbClockCheck, TbClockQuestion, TbClockX } from "react-icons/tb"
 
 export function ScheduleView({ appointment }: { appointment: Appointment }) {
     return (
