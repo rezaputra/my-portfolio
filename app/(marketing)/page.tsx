@@ -1,16 +1,13 @@
 "use client"
 
-import { About } from "./_components/about"
-import { Home } from "./_components/home"
-
 import { useEffect, useState } from "react"
+import { Home } from "./_components/home/home"
 
 function MarketingPage() {
     return (
-        <div>
+        <>
             <Home />
-            <About />
-        </div>
+        </>
     )
 }
 

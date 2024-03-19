@@ -1,12 +1,11 @@
 import { SessionProvider } from "next-auth/react"
-import MainNav from "./_components/main-nav"
+import { Navbar } from "./_components/navbar/navbar"
 
 function MarketingLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <SessionProvider>
-                <MainNav />
-
+                <Navbar />
                 {children}
             </SessionProvider>
         </>
