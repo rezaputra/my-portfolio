@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 import { BiLogoPostgresql } from "react-icons/bi"
 import { DiMongodb } from "react-icons/di"
-import { FaNodeJs, FaPython, FaReact } from "react-icons/fa"
+import { FaDocker, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
 import { GrMysql } from "react-icons/gr"
 import { SiDjango, SiExpress, SiIbmwatson, SiNextdotjs } from "react-icons/si"
 import { TbBrandNextjs } from "react-icons/tb"
@@ -37,7 +37,7 @@ export const itemVarian = {
     animate: { type: "spring" },
 }
 
-export function Introduction() {
+export function HomeIntroduction() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false)
 
     useEffect(() => {
@@ -60,25 +60,28 @@ export function Introduction() {
             initial="hidden"
             animate="visible"
         >
-            <motion.h4 className=" text-lg md:text-xl lg:text-2xl " variants={itemVarian}>
+            <motion.h4 className=" text-base md:text-xl lg:text-2xl xl:text-3xl" variants={itemVarian}>
                 Hello, I’m
             </motion.h4>
-            <motion.h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold" variants={itemVarian}>
+            <motion.h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold" variants={itemVarian}>
                 Reza
                 <br />
                 Mardiansyah <br />
                 Putra
             </motion.h1>
 
-            <motion.h4 className="  md:text-xl lg:text-2xl text-muted-foreground truncate" variants={itemVarian}>
-                Fullstack Developer & Data Scientist
+            <motion.h4
+                className="   text-base md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground truncate"
+                variants={itemVarian}
+            >
+                Fullstack Developer
             </motion.h4>
             <motion.div className=" space-x-1 md:space-x-2" variants={itemVarian}>
                 <TooltipProvider>
                     {/* <FaNodeJs className="lg:size-8" /> */}
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <TbBrandNextjs className="size-6 lg:size-8" />
+                            <TbBrandNextjs className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>Next js</span>
@@ -86,7 +89,7 @@ export function Introduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <SiExpress className="size-6 lg:size-8" />
+                            <SiExpress className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>Express js</span>
@@ -94,7 +97,15 @@ export function Introduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <SiDjango className="size-6 lg:size-8" />
+                            <FaDocker className="size-4 md:size-6 lg:size-8" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <span>Docker</span>
+                        </TooltipContent>
+                    </Tooltip>
+                    <Tooltip delayDuration={0}>
+                        <TooltipTrigger>
+                            <SiDjango className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>Django</span>
@@ -102,7 +113,7 @@ export function Introduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <SiIbmwatson className="size-6 lg:size-8" />
+                            <SiIbmwatson className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>IBM Watson</span>
@@ -110,7 +121,7 @@ export function Introduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <DiMongodb className="size-6 lg:size-8" />
+                            <DiMongodb className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>MongoDB</span>
@@ -118,7 +129,7 @@ export function Introduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <GrMysql className="size-6 lg:size-8" />
+                            <GrMysql className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
                             <span>Mysql</span>
@@ -138,7 +149,7 @@ export function Introduction() {
                 >
                     <Link href={"#contact"}>
                         <motion.button
-                            className="flex bg-foreground px-4 py-2 rounded-md text-background text-sm"
+                            className="flex bg-foreground px-2 md:px-3 lg:px-4 py-1 md:py-2 rounded-md text-background text-xs md:text-sm lg:text-base"
                             whileHover={{ scale: 1.1, rotate: "2deg" }}
                         >
                             Hire Me

@@ -30,7 +30,7 @@ export function HomePhoto() {
     }
 
     return (
-        <div className=" w-full md:w-max flex  justify-center">
+        <div className=" flex w-full md:w-max  justify-center">
             <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -41,13 +41,13 @@ export function HomePhoto() {
                     height={390}
                     width={390}
                     alt="Home-photo"
-                    className=" w-[200px] md:w-[300px] lg:w-[470px] h-auto shadow-md"
+                    className=" w-[180px] md:w-[300px] lg:w-[400px] xl:w-[480px] h-auto shadow-md"
                     priority={true}
                 />
                 <div className="relative block bg-primary ">
                     <AnimatePresence>
                         <motion.div
-                            className="flex absolute z-0 items-center px-4  h-8  md:h-10 lg:h-12 space-x-2 bottom-0 md:left-0 lg:left-[-230px] w-[200px] md:w-full lg:w-[230px] justify-center lg:origin-right bg-primary"
+                            className="flex absolute z-0 items-center px-4 h-8 md:h-10 lg:h-12 xl:h-14 space-x-2 bottom-0 md:left-0 lg:left-[-230px] w-full lg:w-[230px] justify-center lg:origin-right bg-zinc-950"
                             initial={{ opacity: 0, scaleX: 0.5 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             exit={{ opacity: 0 }}
@@ -59,7 +59,7 @@ export function HomePhoto() {
                                 className="flex gap-x-2 items-center"
                             >
                                 <FaGithub
-                                    className=" md:size-6 lg:size-8 text-secondary"
+                                    className=" md:size-6 lg:size-7 xl:size-8 text-zinc-50"
                                     onMouseEnter={() => {
                                         onMouseEnter("github")
                                     }}
@@ -69,7 +69,7 @@ export function HomePhoto() {
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}
                                         transition={{ type: "spring" }}
-                                        className=" origin-left  text-xs md:text-sm lg:text-lg text-secondary"
+                                        className=" origin-left  text-xs md:text-sm lg:text-lg text-zinc-50"
                                     >
                                         Github
                                     </motion.span>
@@ -77,7 +77,7 @@ export function HomePhoto() {
                             </Link>
                             <Link href={"#"} target="_blank" className=" flex gap-x-2 items-center">
                                 <FaInstagram
-                                    className=" size-4 md:size-6 lg:size-8 text-secondary"
+                                    className=" size-4 md:size-6 lg:size-7 xl:size-8 text-zinc-50"
                                     onMouseEnter={() => {
                                         onMouseEnter("instagram")
                                     }}
@@ -87,7 +87,7 @@ export function HomePhoto() {
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}
                                         transition={{ type: "spring" }}
-                                        className="  text-xs md:text-sm lg:text-lg origin-left text-secondary"
+                                        className="  text-xs md:text-sm lg:text-lg origin-left text-zinc-50"
                                     >
                                         Instagram
                                     </motion.span>
@@ -99,7 +99,7 @@ export function HomePhoto() {
                                 className=" flex gap-x-2 items-center"
                             >
                                 <FaLinkedin
-                                    className=" size-4 md:size-6 lg:size-8 text-secondary"
+                                    className=" size-4 md:size-6 lg:size-7 xl:size-8 text-zinc-50"
                                     onMouseEnter={() => {
                                         onMouseEnter("linkedin")
                                     }}
@@ -109,7 +109,7 @@ export function HomePhoto() {
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}
                                         transition={{ type: "spring" }}
-                                        className=" text-xs md:text-sm lg:text-lg origin-left text-secondary"
+                                        className=" text-xs md:text-sm lg:text-lg origin-left text-zinc-50"
                                     >
                                         Linkedin
                                     </motion.span>

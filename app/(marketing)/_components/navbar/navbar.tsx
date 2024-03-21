@@ -30,7 +30,11 @@ export function Navbar() {
     }, [])
 
     return (
-        <div className={cn("sticky top-0 w-full h-16 bg-background flex", { "shadow-sm": isScrolled })}>
+        <div
+            className={cn("sticky top-0 left-0 right-0 z-50  w-full h-16 bg-background flex", {
+                "shadow-sm": isScrolled,
+            })}
+        >
             <div className=" container h-full flex items-center gap-x-4  justify-between ">
                 {/* Left side */}
                 <MobileSidebar />

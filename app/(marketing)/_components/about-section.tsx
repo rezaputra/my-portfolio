@@ -1,26 +1,24 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-
-import { SectionTitle } from "../section-title"
-import { FaBirthdayCake, FaHome, FaLanguage, FaPhone } from "react-icons/fa"
-import { MdAttachEmail } from "react-icons/md"
-import { SiFreelancer } from "react-icons/si"
-import { IoLanguage } from "react-icons/io5"
-
+import { SectionContent, SectionTitle, SectionWrapper } from "@/components/landingpage/section-wrapper"
+import { useInView } from "framer-motion"
 import Image from "next/image"
-import { motion, useInView } from "framer-motion"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
-export function AboutMe() {
+import { motion } from "framer-motion"
+import { FaBirthdayCake, FaHome, FaPhone } from "react-icons/fa"
+import { MdAttachEmail } from "react-icons/md"
+import { IoLanguage } from "react-icons/io5"
+import { SiFreelancer } from "react-icons/si"
+
+export function AboutSection() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
 
     return (
-        <div id="about" className=" w-full h-max ">
-            <div className=" container space-y-4 md:space-y-6 lg:space-y-12 my-6 md:my-12 lg:my-16 ">
-                <SectionTitle>About Me</SectionTitle>
-                <div ref={ref} className="  flex justify-center lg:gap-x-14 px-4 md:px-12 ">
+        <SectionWrapper id="about" className=" mt-4 md:mt-8 lg:mt-12 xl:mt-16">
+            <SectionTitle title="ABOUT ME" />
+
+            <SectionContent>
+                <div ref={ref} className="flex justify-center lg:gap-x-14 px-4 md:px-14 ">
                     {/* Left side */}
                     <motion.div
                         initial={{ opacity: 0, x: -100 }}
@@ -33,7 +31,7 @@ export function AboutMe() {
                             alt="About photo"
                             height={400}
                             width={400}
-                            className=" hidden w-auto h-auto lg:flex lg:w-[400px]  shadow-md"
+                            className=" hidden w-auto h-auto lg:flex lg:w-[350px] xl:w-[400px]  shadow-md"
                         />
                     </motion.div>
 
@@ -45,22 +43,24 @@ export function AboutMe() {
                         className=" flex flex-col justify-between space-y-4 lg:space-y-0"
                     >
                         {/* Title & description */}
-                        <div className=" space-y-1 md:space-y-2 lg:space-y-4">
-                            <h2 className=" text-xl text-center md:text-left  md:text-2xl lg:text-4xl font-normal">
-                                Hi There! I&apos;m Reza{" "}
+                        <div className=" space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4">
+                            <h2 className="text-center md:text-left text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                                Hey there! It&apos;s Reza,
                             </h2>
-                            <h4 className=" text-base text-center md:text-left md:text-xl lg:text-3xl">
-                                Fullstack Developer & Data Scientist
+                            <h4 className="text-center md:text-left text-sm md:text-base lg:text-lg xl:text-xl">
+                                Eager to dive into the new big challenge!
                             </h4>
-                            <p className=" text-sm md:text-base lg:text-lg text-center md:text-left lg:font-light text-muted-foreground max-w-lg md:max-w-2xl lg:max-w-xl line-clamp-2 lg:line-clamp-4">
-                                As a versatile Fullstack Developer and savvy Data Scientist, I create captivating
-                                digital experiences. I blend sleek interfaces with insightful data analysis to inspire
-                                action and drive positive impact through technology.
+                            <p className=" hidden md:flex text-xs md:text-sm lg:text-base text-center md:text-left text-muted-foreground max-w-lg md:max-w-2xl lg:max-w-2xl line-clamp-2 lg:line-clamp-4">
+                                As a versatile Fullstack Developer with the analytical finesse of a Data Scientist, I
+                                design engaging digital experiences that blend sleek interfaces with insightful data
+                                analysis. My goal is to inspire action and create positive impacts through technology,
+                                crafting user-friendly solutions that resonate with audiences across the digital
+                                landscape.
                             </p>
                         </div>
                         {/* Detail Information */}
-                        <div className="flex text-sm md:text-base lg:text-lg lg:font-light  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start">
-                            <div className=" hidden md:block space-y-2">
+                        <div className="flex text-xs md:text-sm lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start">
+                            <div className=" hidden md:block space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 ">
                                 <div className=" flex w-full justify-center md:justify-start items-center">
                                     <p className=" hidden md:flex">Birthday</p>
                                 </div>
@@ -80,7 +80,7 @@ export function AboutMe() {
                                     <p className=" hidden md:flex">Freelance</p>
                                 </div>
                             </div>
-                            <div className=" flex flex-col items-center md:items-start space-y-2 ">
+                            <div className=" flex flex-col space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 items-center md:items-start ">
                                 <div className=" flex space-x-2  items-center">
                                     <FaBirthdayCake className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
@@ -99,7 +99,7 @@ export function AboutMe() {
                                 <div className=" flex space-x-2  items-center">
                                     <FaHome className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
-                                    <span>Yogyakarta</span>
+                                    <span>Yogyakarta, Indonesia</span>
                                 </div>
                                 <div className=" flex space-x-2  items-center">
                                     <IoLanguage className=" flex md:hidden size-4" />
@@ -115,11 +115,13 @@ export function AboutMe() {
                         </div>
                         {/* CV button */}
                         <div className=" flex w-full justify-center lg:justify-start text-foreground">
-                            <Button variant="secondary">Download CV</Button>
+                            <button className="flex bg-foreground px-2 py-2 md:px-3 md:py-2 rounded-md text-background text-xs/3 md:text-xs xl:text-sm">
+                                Download CV
+                            </button>
                         </div>
                     </motion.div>
                 </div>
-            </div>
-        </div>
+            </SectionContent>
+        </SectionWrapper>
     )
 }
