@@ -6,14 +6,14 @@ import { BiLogoPostgresql } from "react-icons/bi"
 import { DiMongodb } from "react-icons/di"
 import { FaDocker, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
 import { GrMysql } from "react-icons/gr"
-import { SiDjango, SiExpress, SiIbmwatson, SiNextdotjs } from "react-icons/si"
+import { SiDjango, SiExpress, SiIbmcloud, SiIbmwatson, SiNextdotjs } from "react-icons/si"
 import { TbBrandNextjs } from "react-icons/tb"
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
-export const containerVariant = {
+const containerVariant = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
         opacity: 1,
@@ -25,7 +25,7 @@ export const containerVariant = {
     },
 }
 
-export const itemVarian = {
+const itemVarian = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,
@@ -113,10 +113,10 @@ export function HomeIntroduction() {
                     </Tooltip>
                     <Tooltip delayDuration={0}>
                         <TooltipTrigger>
-                            <SiIbmwatson className="size-4 md:size-6 lg:size-8" />
+                            <SiIbmcloud className="size-4 md:size-6 lg:size-8" />
                         </TooltipTrigger>
                         <TooltipContent>
-                            <span>IBM Watson</span>
+                            <span>IBM Cloud</span>
                         </TooltipContent>
                     </Tooltip>
                     <Tooltip delayDuration={0}>

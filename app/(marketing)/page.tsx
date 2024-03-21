@@ -8,6 +8,7 @@ import { Skill } from "./_components/skills/skill"
 import HomeSection from "./_components/home-section"
 import { AboutSection } from "./_components/about-section"
 import { ServiceSection } from "./_components/service-section"
+import { SkillSection } from "./_components/skill-section"
 
 function MarketingPage() {
     return (
@@ -15,7 +16,7 @@ function MarketingPage() {
             <HomeSection />
             <AboutSection />
             <ServiceSection />
-            <Skill />
+            <SkillSection />
         </>
     )
 }
