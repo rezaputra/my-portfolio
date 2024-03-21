@@ -58,9 +58,9 @@ export function ServiceSection() {
             <SectionContent className="px-8 md:px-12 lg:px-16 xl:px-20">
                 <motion.div
                     ref={ref}
-                    initial={{ x: 100, opacity: 0 }}
+                    initial={{ x: 50, opacity: 0 }}
                     animate={isInView && { x: 0, opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.5 }}
+                    transition={{ duration: 0.7, delay: 0.5 }}
                 >
                     <div className=" hidden md:flex">
                         <HoverEffect items={services} className=" p-0"></HoverEffect>

@@ -142,11 +142,7 @@ export function HomeIntroduction() {
                 </TooltipProvider>
             </motion.div>
             {isScrolled && (
-                <motion.div
-                    className=" flex justify-center md:justify-start "
-                    transition={{ duration: 1 }}
-                    variants={itemVarian}
-                >
+                <motion.div className=" flex justify-center md:justify-start " variants={itemVarian}>
                     <Link href={"#contact"}>
                         <motion.button
                             className="flex bg-foreground px-2 md:px-3 lg:px-4 py-1 md:py-2 rounded-md text-background text-xs md:text-sm lg:text-base"

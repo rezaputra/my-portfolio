@@ -9,6 +9,30 @@ import { MdAttachEmail } from "react-icons/md"
 import { IoLanguage } from "react-icons/io5"
 import { SiFreelancer } from "react-icons/si"
 
+const containerVariant = {
+    hidden: { opacity: 1, scale: 0.5 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delayChildren: 0.6,
+            staggerChildren: 0.2,
+        },
+    },
+}
+
+const itemVarian = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.6,
+        },
+    },
+    animate: { type: "spring" },
+}
+
 export function AboutSection() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
@@ -21,10 +45,10 @@ export function AboutSection() {
                 <div ref={ref} className="flex justify-center lg:gap-x-14 px-4 md:px-14 ">
                     {/* Left side */}
                     <motion.div
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={isInView && { opacity: 1, x: 0 }}
-                        transition={{ ease: "easeInOut", duration: 1, delay: 1 }}
                         className=" w-auto h-auto shrink-0"
+                        initial={{ opacity: 0, x: -40 }}
+                        animate={isInView && { opacity: 1, x: 0 }}
+                        transition={{ ease: "easeInOut", delay: 0.6, duration: 0.8 }}
                     >
                         <Image
                             src={"/images/about-photo.jpg"}
@@ -37,13 +61,13 @@ export function AboutSection() {
 
                     {/* Right side */}
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={isInView && { opacity: 1, y: 0 }}
-                        transition={{ ease: "backInOut", duration: 1, delay: 1.5 }}
-                        className=" flex flex-col justify-between space-y-4 lg:space-y-0"
+                        className="flex flex-col justify-between space-y-4 lg:space-y-0"
+                        variants={containerVariant}
+                        initial="hidden"
+                        animate={isInView && "visible"}
                     >
                         {/* Title & description */}
-                        <div className=" space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4">
+                        <motion.div className="space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4" variants={itemVarian}>
                             <h2 className="text-center md:text-left text-lg md:text-xl lg:text-2xl xl:text-3xl">
                                 Hey there! It&apos;s Reza,
                             </h2>
@@ -57,9 +81,12 @@ export function AboutSection() {
                                 crafting user-friendly solutions that resonate with audiences across the digital
                                 landscape.
                             </p>
-                        </div>
+                        </motion.div>
                         {/* Detail Information */}
-                        <div className="flex text-xs md:text-sm lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start">
+                        <motion.div
+                            className="flex text-xs md:text-sm lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start"
+                            variants={itemVarian}
+                        >
                             <div className=" hidden md:block space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 ">
                                 <div className=" flex w-full justify-center md:justify-start items-center">
                                     <p className=" hidden md:flex">Birthday</p>
@@ -112,13 +139,16 @@ export function AboutSection() {
                                     <span>Available</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                         {/* CV button */}
-                        <div className=" flex w-full justify-center lg:justify-start text-foreground">
+                        <motion.div
+                            className=" flex w-full justify-center lg:justify-start text-foreground"
+                            variants={itemVarian}
+                        >
                             <button className="flex bg-foreground px-2 py-2 md:px-3 md:py-2 rounded-md text-background text-xs/3 md:text-xs xl:text-sm">
                                 Download CV
                             </button>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </SectionContent>

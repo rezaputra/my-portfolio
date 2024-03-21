@@ -30,9 +30,9 @@ export function SkillSection() {
                     {/* Description */}
                     <motion.div
                         className=" hidden w-full lg:flex flex-col md:max-w-sm lg:max-w-md xl:max-w-lg  space-y-4 text-wrap"
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={isInView && { opacity: 1, x: 0 }}
-                        transition={{ delay: 1, ease: "easeInOut", duration: 1 }}
+                        transition={{ delay: 0.6, ease: "easeInOut", duration: 0.7 }}
                     >
                         <h4 className=" lg:text-2xl xl:text-3xl">
                             All the skills that I have in that field of work are mentioned.
@@ -51,14 +51,9 @@ export function SkillSection() {
 
                     {/* Skill rating*/}
 
-                    <motion.div
-                        className=" space-y-4 w-full lg:max-w-md xl:max-w-lg"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={isInView && { opacity: 1, y: 0 }}
-                        transition={{ delay: 1.7, duration: 1, ease: "easeInOut" }}
-                    >
+                    <div className=" space-y-4 w-full lg:max-w-md xl:max-w-lg">
                         <SkillList skills={skills} />
-                    </motion.div>
+                    </div>
                 </div>
             </SectionContent>
         </SectionWrapper>

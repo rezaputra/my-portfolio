@@ -40,9 +40,9 @@ export function SectionTitle({ title, className }: SectionTitleProps) {
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={isInView && { opacity: 1, y: 0 }}
-            transition={{ ease: "backInOut", duration: 1 }}
+            transition={{ duration: 0.7, type: "spring" }}
             className={cn(
                 "flex w-full justify-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold",
                 className
