@@ -20,7 +20,7 @@ const containerVariant = {
         opacity: 1,
         scale: 1,
         transition: {
-            delayChildren: 0.8,
+            delayChildren: 0.6,
             staggerChildren: 0.2,
         },
     },
@@ -32,7 +32,7 @@ const itemVarian = {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 0.4,
+            duration: 0.3,
         },
     },
     animate: { type: "spring" },
@@ -59,8 +59,8 @@ export function SkillList({ skills }: SkillListProps) {
             <div className=" space-y-4">
                 {skills.map((skill, idx) => (
                     <motion.div key={idx} className="space-y-1" variants={itemVarian}>
-                        <div className=" flex justify-between text-xs md:text-sm lg:text-sm xl:text-base text-muted-foreground">
-                            <span className=" ">{skill.name}</span>
+                        <div className=" flex justify-between text-xs md:text-sm lg:text-base xl:text-base text-muted-foreground">
+                            <span className="">{skill.name}</span>
                             <span>{skill.rating}%</span>
                         </div>
                         <Progress value={skill.rating} className="w-full h-1" />

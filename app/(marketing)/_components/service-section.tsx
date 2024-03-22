@@ -55,7 +55,7 @@ export function ServiceSection() {
         <SectionWrapper id="service">
             <SectionTitle title="SERVICE" />
 
-            <SectionContent className="px-8 md:px-12 lg:px-16 xl:px-20">
+            <SectionContent className="px-[10%]">
                 <motion.div
                     ref={ref}
                     initial={{ x: 50, opacity: 0 }}

@@ -22,10 +22,10 @@ export function SkillSection() {
     const isInView = useInView(ref, { once: true })
 
     return (
-        <SectionWrapper id="skill" className=" px-[10%] md:px-16 lg:px-20">
+        <SectionWrapper id="skill" className="">
             <SectionTitle title="SKILLS" />
 
-            <SectionContent className="">
+            <SectionContent className=" px-[10%]">
                 <div ref={ref} className=" lg:flex justify-center md:gap-x-6 lg:gap-x-10 xl:gap-x-14 h-full">
                     {/* Description */}
                     <motion.div
@@ -37,13 +37,13 @@ export function SkillSection() {
                         <h4 className=" lg:text-2xl xl:text-3xl">
                             All the skills that I have in that field of work are mentioned.
                         </h4>
-                        <p className=" lg:text-sm xl:text-base text-muted-foreground  text-wrap">
+                        <p className=" lg:text-base xl:text-base text-muted-foreground  text-wrap">
                             Bringing over two years of mastery as a skilled Fullstack Developer, I specialize in
                             seamlessly blending web development prowess with my expertise in data science. With a
                             diverse skill set, I architect captivating digital experiences while leveraging data
                             analytics to their fullest potential.
                         </p>
-                        <p className="lg:text-sm xl:text-base text-muted-foreground text-wrap">
+                        <p className="lg:text-base xl:text-base text-muted-foreground text-wrap">
                             My passion lies in driving innovation and effecting positive change through technology.
                             Let&apos;s team up to engineer solutions that redefine the digital landscape!
                         </p>

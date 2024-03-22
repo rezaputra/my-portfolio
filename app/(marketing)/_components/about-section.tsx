@@ -41,11 +41,11 @@ export function AboutSection() {
         <SectionWrapper id="about" className=" mt-4 md:mt-8 lg:mt-12 xl:mt-16">
             <SectionTitle title="ABOUT ME" />
 
-            <SectionContent>
-                <div ref={ref} className="flex justify-center lg:gap-x-14 px-4 md:px-14 ">
+            <SectionContent className="px-[10%]">
+                <div ref={ref} className="flex justify-center lg:gap-x-10 xl:gap-x-14">
                     {/* Left side */}
                     <motion.div
-                        className=" w-auto h-auto shrink-0"
+                        className="shrink-0"
                         initial={{ opacity: 0, x: -40 }}
                         animate={isInView && { opacity: 1, x: 0 }}
                         transition={{ ease: "easeInOut", delay: 0.6, duration: 0.8 }}
@@ -55,7 +55,8 @@ export function AboutSection() {
                             alt="About photo"
                             height={400}
                             width={400}
-                            className=" hidden w-auto h-auto lg:flex lg:w-[350px] xl:w-[400px]  shadow-md"
+                            className=" hidden h-auto lg:flex lg:w-[350px] xl:w-[400px] shadow-md"
+                            priority={true}
                         />
                     </motion.div>
 
@@ -68,13 +69,13 @@ export function AboutSection() {
                     >
                         {/* Title & description */}
                         <motion.div className="space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4" variants={itemVarian}>
-                            <h2 className="text-center md:text-left text-lg md:text-xl lg:text-2xl xl:text-3xl">
+                            <h2 className="text-center md:text-left text-lg md:text-2xl lg:text-2xl xl:text-3xl">
                                 Hey there! It&apos;s Reza,
                             </h2>
-                            <h4 className="text-center md:text-left text-sm md:text-base lg:text-lg xl:text-xl">
+                            <h4 className="text-center md:text-left text-sm md:text-lg lg:text-lg xl:text-xl">
                                 Eager to dive into the new big challenge!
                             </h4>
-                            <p className=" hidden md:flex text-xs md:text-sm lg:text-base text-center md:text-left text-muted-foreground max-w-lg md:max-w-2xl lg:max-w-2xl line-clamp-2 lg:line-clamp-4">
+                            <p className=" hidden md:flex text-xs md:text-base lg:text-base text-center md:text-left text-muted-foreground max-w-lg md:max-w-2xl lg:max-w-2xl line-clamp-2 lg:line-clamp-4">
                                 As a versatile Fullstack Developer with the analytical finesse of a Data Scientist, I
                                 design engaging digital experiences that blend sleek interfaces with insightful data
                                 analysis. My goal is to inspire action and create positive impacts through technology,
@@ -84,7 +85,7 @@ export function AboutSection() {
                         </motion.div>
                         {/* Detail Information */}
                         <motion.div
-                            className="flex text-xs md:text-sm lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start"
+                            className="flex text-xs md:text-base lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start"
                             variants={itemVarian}
                         >
                             <div className=" hidden md:block space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 ">
@@ -145,7 +146,7 @@ export function AboutSection() {
                             className=" flex w-full justify-center lg:justify-start text-foreground"
                             variants={itemVarian}
                         >
-                            <button className="flex bg-foreground px-2 py-2 md:px-3 md:py-2 rounded-md text-background text-xs/3 md:text-xs xl:text-sm">
+                            <button className="flex bg-primary px-2 py-2 md:px-3 md:py-2 rounded-md text-background text-xs/3 md:text-xs xl:text-sm hover:bg-primary/90">
                                 Download CV
                             </button>
                         </motion.div>

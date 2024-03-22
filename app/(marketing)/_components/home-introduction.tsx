@@ -74,7 +74,7 @@ export function HomeIntroduction() {
                 className="   text-base md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground truncate"
                 variants={itemVarian}
             >
-                Fullstack Developer
+                Fullstack Software Developer
             </motion.h4>
             <motion.div className=" space-x-1 md:space-x-2" variants={itemVarian}>
                 <TooltipProvider>
