@@ -20,7 +20,7 @@ const containerVariant = {
         opacity: 1,
         scale: 1,
         transition: {
-            delayChildren: 0.6,
+            delayChildren: 0.5,
             staggerChildren: 0.2,
         },
     },
@@ -51,7 +51,7 @@ export function SkillList({ skills }: SkillListProps) {
             animate={isInView && "visible"}
         >
             <motion.div variants={itemVarian}>
-                <h4 className=" lg:hidden text-muted-foreground text-sm md:text-lg text-center italic transition-opacity delay-500 animate-in">
+                <h4 className=" lg:hidden  text-sm md:text-lg text-center italic ">
                     &ldquo;All the skills that I have in that field of work are mentioned.&ldquo;
                 </h4>
             </motion.div>

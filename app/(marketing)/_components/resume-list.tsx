@@ -21,7 +21,7 @@ const containerVariant = {
         opacity: 1,
         scale: 1,
         transition: {
-            delayChildren: 0.6,
+            delayChildren: 0.4,
             staggerChildren: 0.2,
         },
     },
@@ -53,11 +53,11 @@ export function ResumeList({ title, icon: Icon, contents }: ResumeListProps) {
         >
             {/* Title */}
             <motion.div
-                className=" flex items-center justify-center lg:justify-start space-x-2 lg:space-x-4"
+                className=" flex items-center justify-center lg:justify-start space-x-2 md:space-x-3 lg:space-x-4"
                 variants={itemVarian}
             >
                 <Icon className=" size-4 md:size-5 lg:size-6 xl:size-7 opacity-60" />
-                <span className=" text-base md:text-xl lg:text-2xl xl:text-3xl">{title}</span>
+                <span className=" text-base md:text-xl lg:text-2xl xl:text-2xl">{title}</span>
             </motion.div>
             {/* Desktop */}
             <div className=" hidden lg:block space-y-6">

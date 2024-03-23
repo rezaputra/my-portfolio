@@ -61,8 +61,8 @@ export function ResumeSection() {
         <SectionWrapper id="resume">
             <SectionTitle title="RESUME" />
 
-            <SectionContent className=" flex flex-col items-center justify-center w-full px-[10%] ">
-                <div className=" space-y-8 lg:flex md:space-y-12 lg:space-y-0 w-full justify-center lg:space-x-10 xl:space-x-16">
+            <SectionContent className=" flex flex-col items-center justify-center w-full ">
+                <div className=" space-y-6 lg:flex md:space-y-8 lg:space-y-0 w-full justify-center lg:space-x-10 xl:space-x-16">
                     {/* Left side */}
                     <div className=" w-full  lg:max-w-sm xl:max-w-md ">
                         <ResumeList title="Education" icon={FaPenNib} contents={educations} />

@@ -55,15 +55,15 @@ export function ServiceSection() {
         <SectionWrapper id="service">
             <SectionTitle title="SERVICE" />
 
-            <SectionContent className="px-[10%]">
+            <SectionContent className=" px-[9%]">
                 <motion.div
                     ref={ref}
                     initial={{ x: 50, opacity: 0 }}
                     animate={isInView && { x: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
                 >
                     <div className=" hidden md:flex">
-                        <HoverEffect items={services} className=" p-0"></HoverEffect>
+                        <HoverEffect items={services} className="  py-0 "></HoverEffect>
                     </div>
                     <div className="flex md:hidden w-full">
                         <ScrollArea className="w-full whitespace-nowrap rounded-md border">

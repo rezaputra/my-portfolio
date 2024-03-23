@@ -30,7 +30,7 @@ export function SectionWrapper({ id, className, children }: SectionWrapperProps)
 }
 
 export function SectionContent({ className, children }: SectionContentProps) {
-    return <div className={cn("container mt-4 md:mt-8 lg:mt-12 xl:mt-16", className)}>{children}</div>
+    return <div className={cn("container mt-4 md:mt-8 lg:mt-12 xl:mt-16 px-[10%] xl:px-20", className)}>{children}</div>
 }
 
 export function SectionTitle({ title, className }: SectionTitleProps) {

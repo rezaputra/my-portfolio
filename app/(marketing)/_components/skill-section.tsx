@@ -25,25 +25,25 @@ export function SkillSection() {
         <SectionWrapper id="skill" className="">
             <SectionTitle title="SKILLS" />
 
-            <SectionContent className=" px-[10%]">
+            <SectionContent className="">
                 <div ref={ref} className=" lg:flex justify-center md:gap-x-6 lg:gap-x-10 xl:gap-x-14 h-full">
                     {/* Description */}
                     <motion.div
-                        className=" hidden w-full lg:flex flex-col md:max-w-sm lg:max-w-md xl:max-w-lg  space-y-4 text-wrap"
+                        className=" hidden w-full lg:flex flex-col md:max-w-sm lg:max-w-md xl:max-w-lg  space-y-4 xl:space-y-6 text-wrap"
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView && { opacity: 1, x: 0 }}
-                        transition={{ delay: 0.6, ease: "easeInOut", duration: 0.7 }}
+                        transition={{ delay: 0.4, ease: "easeInOut", duration: 0.7 }}
                     >
                         <h4 className=" lg:text-2xl xl:text-3xl">
                             All the skills that I have in that field of work are mentioned.
                         </h4>
-                        <p className=" lg:text-base xl:text-base text-muted-foreground  text-wrap">
+                        <p className=" lg:text-base xl:text-[17px] text-muted-foreground  text-wrap">
                             Bringing over two years of mastery as a skilled Fullstack Developer, I specialize in
                             seamlessly blending web development prowess with my expertise in data science. With a
                             diverse skill set, I architect captivating digital experiences while leveraging data
                             analytics to their fullest potential.
                         </p>
-                        <p className="lg:text-base xl:text-base text-muted-foreground text-wrap">
+                        <p className="lg:text-base xl:text-[17px] text-muted-foreground text-wrap">
                             My passion lies in driving innovation and effecting positive change through technology.
                             Let&apos;s team up to engineer solutions that redefine the digital landscape!
                         </p>

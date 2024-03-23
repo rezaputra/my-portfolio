@@ -41,7 +41,7 @@ export function HomePhoto() {
                     height={390}
                     width={390}
                     alt="Home-photo"
-                    className=" w-[180px] md:w-[300px] lg:w-[400px] xl:w-[480px] h-auto shadow-md"
+                    className=" w-[180px] md:w-[280px] lg:w-[350px] xl:w-[460px] h-auto shadow-md"
                     priority={true}
                 />
                 <div className="relative block bg-primary origin-right">

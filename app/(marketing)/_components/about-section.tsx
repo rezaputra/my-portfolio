@@ -8,6 +8,7 @@ import { FaBirthdayCake, FaHome, FaPhone } from "react-icons/fa"
 import { MdAttachEmail } from "react-icons/md"
 import { IoLanguage } from "react-icons/io5"
 import { SiFreelancer } from "react-icons/si"
+import { Button } from "@/components/ui/button"
 
 const containerVariant = {
     hidden: { opacity: 1, scale: 0.5 },
@@ -41,7 +42,7 @@ export function AboutSection() {
         <SectionWrapper id="about" className=" mt-4 md:mt-8 lg:mt-12 xl:mt-16">
             <SectionTitle title="ABOUT ME" />
 
-            <SectionContent className="px-[10%]">
+            <SectionContent className="">
                 <div ref={ref} className="flex justify-center lg:gap-x-10 xl:gap-x-14">
                     {/* Left side */}
                     <motion.div
@@ -55,45 +56,48 @@ export function AboutSection() {
                             alt="About photo"
                             height={400}
                             width={400}
-                            className=" hidden h-auto lg:flex lg:w-[350px] xl:w-[400px] shadow-md"
+                            className="hidden h-auto w-auto  lg:flex lg:w-[320px] xl:w-[370px] shadow-md"
                             priority={true}
                         />
                     </motion.div>
 
                     {/* Right side */}
                     <motion.div
-                        className="flex flex-col justify-between space-y-4 lg:space-y-0"
+                        className="flex flex-col justify-between space-y-4 md:space-y-5"
                         variants={containerVariant}
                         initial="hidden"
                         animate={isInView && "visible"}
                     >
-                        {/* Title & description */}
-                        <motion.div className="space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4" variants={itemVarian}>
-                            <h2 className="text-center md:text-left text-lg md:text-2xl lg:text-2xl xl:text-3xl">
-                                Hey there! It&apos;s Reza,
-                            </h2>
-                            <h4 className="text-center md:text-left text-sm md:text-lg lg:text-lg xl:text-xl">
-                                Eager to dive into the new big challenge!
-                            </h4>
-                            <p className=" hidden md:flex text-xs md:text-base lg:text-base text-center md:text-left text-muted-foreground max-w-lg md:max-w-2xl lg:max-w-2xl line-clamp-2 lg:line-clamp-4">
-                                As a versatile Fullstack Developer with the analytical finesse of a Data Scientist, I
-                                design engaging digital experiences that blend sleek interfaces with insightful data
-                                analysis. My goal is to inspire action and create positive impacts through technology,
-                                crafting user-friendly solutions that resonate with audiences across the digital
-                                landscape.
-                            </p>
-                        </motion.div>
-                        {/* Detail Information */}
+                        {/* Title */}
                         <motion.div
-                            className="flex text-xs md:text-base lg:text-base  text-muted-foreground space-x-2 md:space-x-10 items-center justify-center md:justify-start"
+                            className="text-center md:text-left space-y-1 md:space-y-2 xl:space-y-3"
                             variants={itemVarian}
                         >
-                            <div className=" hidden md:block space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 ">
+                            <h2 className=" text-lg font-semibold md:text-2xl xl:text-3xl">
+                                Hey there! It&apos;s Reza,
+                            </h2>
+                            <h4 className="text-sm md:text-base text-muted-foreground xl:text-lg">
+                                Eager to dive into the new big challenge!
+                            </h4>
+                        </motion.div>
+                        <motion.div className=" hidden md:flex xl:text-lg max-w-2xl" variants={itemVarian}>
+                            <p className="">
+                                As a Fullstack Developer, I create exciting digital experiences by combining sleek
+                                interfaces with insightful data analysis, blending technology seamlessly for maximum
+                                engagement.
+                            </p>
+                        </motion.div>
+
+                        {/* Description */}
+
+                        {/* Detail Information */}
+                        <motion.div
+                            className="flex text-sm md:text-base lg:text-base xl:text-lg md:space-x-14 xl:space-x-20 items-center justify-center md:justify-start"
+                            variants={itemVarian}
+                        >
+                            <div className=" hidden md:block space-y-2 md:space-y-2 lg:space-y-2 xl:space-y-3 ">
                                 <div className=" flex w-full justify-center md:justify-start items-center">
                                     <p className=" hidden md:flex">Birthday</p>
-                                </div>
-                                <div className=" flex w-full justify-center md:justify-start">
-                                    <p className=" hidden md:flex">Phone</p>
                                 </div>
                                 <div className=" flex w-full justify-center md:justify-start">
                                     <p className=" hidden md:flex">Email</p>
@@ -108,21 +112,16 @@ export function AboutSection() {
                                     <p className=" hidden md:flex">Freelance</p>
                                 </div>
                             </div>
-                            <div className=" flex flex-col space-y-2 md:space-y-3 lg:space-y-2 xl:space-y-4 items-center md:items-start ">
+                            <div className=" flex flex-col space-y-2 md:space-y-2 lg:space-y-2 xl:space-y-3 items-center md:items-start ">
                                 <div className=" flex space-x-2  items-center">
                                     <FaBirthdayCake className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
                                     <span>March 22, 1998</span>
                                 </div>
                                 <div className=" flex space-x-2  items-center">
-                                    <FaPhone className=" flex md:hidden size-4" />
-                                    <span className=" hidden md:flex">: </span>
-                                    <span>+62 822-8235-3557</span>
-                                </div>
-                                <div className=" flex space-x-2  items-center">
                                     <MdAttachEmail className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
-                                    <span className="truncate">rezaputramardiansyah@gmail.com</span>
+                                    <span className=" line-clamp-1">rezaputramardiansyah@gmail.com</span>
                                 </div>
                                 <div className=" flex space-x-2  items-center">
                                     <FaHome className=" flex md:hidden size-4" />
@@ -134,7 +133,7 @@ export function AboutSection() {
                                     <span className=" hidden md:flex">: </span>
                                     <span>English, Indonesia</span>
                                 </div>
-                                <div className=" flex space-x-2 items-center">
+                                <div className=" flex space-x-2  items-center">
                                     <SiFreelancer className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
                                     <span>Available</span>
@@ -143,12 +142,13 @@ export function AboutSection() {
                         </motion.div>
                         {/* CV button */}
                         <motion.div
-                            className=" flex w-full justify-center lg:justify-start text-foreground"
+                            className=" flex justify-center md:justify-start text-foreground"
                             variants={itemVarian}
                         >
-                            <button className="flex bg-primary px-2 py-2 md:px-3 md:py-2 rounded-md text-background text-xs/3 md:text-xs xl:text-sm hover:bg-primary/90">
+                            <Button className=" hidden lg:block">Download CV</Button>
+                            <Button size={"sm"} className=" block lg:hidden">
                                 Download CV
-                            </button>
+                            </Button>
                         </motion.div>
                     </motion.div>
                 </div>
