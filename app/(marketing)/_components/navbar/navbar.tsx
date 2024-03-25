@@ -9,6 +9,7 @@ import { NavbarList } from "./navbar-list"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export function Navbar() {
     const user = useCurrentUser()
@@ -38,8 +39,10 @@ export function Navbar() {
             <div className=" container h-full flex items-center gap-x-4  justify-between ">
                 {/* Left side */}
                 <MobileSidebar />
-                <div className=" flex h-full items-center gap-x-4 lg:gap-x-8">
-                    <span className=" text-2xl font-semibold">Logo</span>
+                <div className=" flex h-full items-center gap-x-4 lg:gap-x-8 ">
+                    <Link href={"/#"} className=" mt-2">
+                        <Image src={"/images/logo.png"} alt="Logo" height={60} width={60} />
+                    </Link>
                     <NavbarList />
                 </div>
 

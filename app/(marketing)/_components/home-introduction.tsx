@@ -15,12 +15,7 @@ import { IconType } from "react-icons"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { IconTooltip } from "./icon-tooltip"
-
-export interface IIcon {
-    tooltip: string
-    icon: IconType
-}
+import { IIcon, IconTooltip } from "@/components/landingpage/icon-tooltip"
 
 const containerVariant = {
     hidden: { opacity: 1, scale: 0 },
@@ -93,7 +88,7 @@ export function HomeIntroduction() {
                 className="   text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground truncate"
                 variants={itemVarian}
             >
-                Fullstack Software Developer
+                Fullstack Web Developer
             </motion.h4>
             <motion.div className=" space-x-1 md:space-x-1.5 xl:space-x-3" variants={itemVarian}>
                 <IconTooltip icons={iconItems} className=" md:size-5 lg:size-6 xl:size-7" />

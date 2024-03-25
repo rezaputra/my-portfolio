@@ -1,9 +1,12 @@
 "use client"
 
-import { IIcon } from "./home-introduction"
+export interface IIcon {
+    tooltip: string
+    icon: IconType
+}
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { cn } from "@/lib/utils"
+import { IconType } from "react-icons"
 
 interface IconTooltipProps {
     className?: string

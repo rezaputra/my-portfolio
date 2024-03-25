@@ -9,6 +9,7 @@ import { MdAttachEmail } from "react-icons/md"
 import { IoLanguage } from "react-icons/io5"
 import { SiFreelancer } from "react-icons/si"
 import { Button } from "@/components/ui/button"
+import { DirectionAwareHover } from "@/components/ui/direction-aware-hover"
 
 const containerVariant = {
     hidden: { opacity: 1, scale: 0.5 },
@@ -46,19 +47,19 @@ export function AboutSection() {
                 <div ref={ref} className="flex justify-center lg:gap-x-10 xl:gap-x-14">
                     {/* Left side */}
                     <motion.div
-                        className="shrink-0"
+                        className="shrink-0 hidden relative lg:flex items-center justify-center shadow-md"
                         initial={{ opacity: 0, x: -40 }}
                         animate={isInView && { opacity: 1, x: 0 }}
                         transition={{ ease: "easeInOut", delay: 0.6, duration: 0.8 }}
                     >
-                        <Image
-                            src={"/images/about-photo.jpg"}
-                            alt="About photo"
-                            height={400}
-                            width={400}
-                            className="hidden h-auto w-auto  lg:flex lg:w-[320px] xl:w-[370px] shadow-md"
-                            priority={true}
-                        />
+                        <DirectionAwareHover
+                            imageUrl={"/images/about-photo.jpg"}
+                            className=" rounded-sm cursor-pointer"
+                            imageClassName="h-auto w-auto lg:flex lg:w-[330px] xl:w-[380px]"
+                        >
+                            <p className="font-bold text-xl">Reza Mardiansyah Putra</p>
+                            <p className="font-normal text-sm">Developer</p>
+                        </DirectionAwareHover>
                     </motion.div>
 
                     {/* Right side */}
@@ -81,7 +82,7 @@ export function AboutSection() {
                             </h4>
                         </motion.div>
                         <motion.div className=" hidden md:flex xl:text-lg max-w-2xl" variants={itemVarian}>
-                            <p className="">
+                            <p className=" font-sans ">
                                 As a Fullstack Developer, I create exciting digital experiences by combining sleek
                                 interfaces with insightful data analysis, blending technology seamlessly for maximum
                                 engagement.
@@ -92,7 +93,7 @@ export function AboutSection() {
 
                         {/* Detail Information */}
                         <motion.div
-                            className="flex text-sm md:text-base lg:text-base xl:text-lg md:space-x-14 xl:space-x-20 items-center justify-center md:justify-start"
+                            className="flex  font-sans text-sm md:text-base lg:text-base xl:text-lg md:space-x-14 xl:space-x-20 items-center justify-center md:justify-start"
                             variants={itemVarian}
                         >
                             <div className=" hidden md:block space-y-2 md:space-y-2 lg:space-y-2 xl:space-y-3 ">

@@ -75,7 +75,9 @@ export function ResumeList({ title, icon: Icon, contents }: ResumeListProps) {
                             </div>
                             <div className="space-y-1">
                                 <span className=" md:text-sm lg:text-base">{content.place}</span>
-                                <p className="md:text-sm lg:text-base text-muted-foreground">{content.description}</p>
+                                <p className=" font-sans md:text-sm lg:text-base text-muted-foreground">
+                                    {content.description}
+                                </p>
                             </div>
                         </div>
                     </motion.div>

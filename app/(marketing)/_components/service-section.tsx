@@ -58,7 +58,7 @@ export function ServiceSection() {
             <SectionContent className=" px-[9%]">
                 <motion.div
                     ref={ref}
-                    initial={{ x: 50, opacity: 0 }}
+                    initial={{ x: 20, opacity: 0 }}
                     animate={isInView && { x: 0, opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 }}
                 >

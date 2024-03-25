@@ -51,15 +51,20 @@ export function SkillList({ skills }: SkillListProps) {
             animate={isInView && "visible"}
         >
             <motion.div variants={itemVarian}>
-                <h4 className=" lg:hidden  text-sm md:text-lg text-center italic ">
+                <h4 className=" lg:hidden  text-sm md:text-lg text-center italic font-sans ">
                     &ldquo;All the skills that I have in that field of work are mentioned.&ldquo;
                 </h4>
             </motion.div>
 
             <div className=" space-y-4">
                 {skills.map((skill, idx) => (
-                    <motion.div key={idx} className="space-y-1" variants={itemVarian}>
-                        <div className=" flex justify-between text-xs md:text-sm lg:text-base xl:text-base text-muted-foreground">
+                    <motion.div
+                        key={idx}
+                        className="space-y-1 cursor-pointer"
+                        variants={itemVarian}
+                        whileHover={{ scale: 1.04 }}
+                    >
+                        <div className=" flex justify-between text-xs md:text-sm lg:text-base xl:text-lg font-sans ">
                             <span className="">{skill.name}</span>
                             <span>{skill.rating}%</span>
                         </div>
