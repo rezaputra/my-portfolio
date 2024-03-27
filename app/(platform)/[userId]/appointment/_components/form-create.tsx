@@ -44,7 +44,6 @@ export function FormCreate({ userId }: { userId: string | undefined }) {
     const selectDate = new Date(date)
 
     const onSubmit = (values: z.infer<typeof createAppointmentSchema>) => {
-        console.log(values)
         startTransition(() => {
             createAppointment(values)
                 .then((res) => {

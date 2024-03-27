@@ -41,7 +41,14 @@ export function Navbar() {
                 <MobileSidebar />
                 <div className=" flex h-full items-center gap-x-4 lg:gap-x-8 ">
                     <Link href={"/#"} className=" mt-2">
-                        <Image src={"/images/logo.png"} alt="Logo" height={60} width={60} />
+                        <Image
+                            src={"/images/logo.png"}
+                            alt="Logo"
+                            height={60}
+                            width={60}
+                            priority
+                            className=" w-12 md:w-auto"
+                        />
                     </Link>
                     <NavbarList />
                 </div>

@@ -3,7 +3,7 @@ import Image from "next/image"
 import { DiMongodb } from "react-icons/di"
 import { FaDocker, FaPython } from "react-icons/fa"
 import { GrMysql } from "react-icons/gr"
-import { SiDjango, SiExpress, SiIbmcloud, SiJupyter, SiStreamlit, SiTailwindcss } from "react-icons/si"
+import { SiDjango, SiExpress, SiIbmcloud, SiJupyter, SiPrisma, SiStreamlit, SiTailwindcss } from "react-icons/si"
 import { TbBrandNextjs } from "react-icons/tb"
 
 const nextJs = { tooltip: "Next Js", icon: TbBrandNextjs }
@@ -17,6 +17,7 @@ const expressJs = { tooltip: "Express Js", icon: SiExpress }
 const streamlit = { tooltip: "Streamlit", icon: SiStreamlit }
 const python = { tooltip: "Python", icon: FaPython }
 const jupyterNotebook = { tooltip: "Jupyter Notebook", icon: SiJupyter }
+const prisma = { tooltip: "Prisma", icon: SiPrisma }
 
 export const Skeleton = () => (
     <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-sm bg-gradient-to-br from-secondary-foreground/80 to-secondary-foreground dark:from-neutral-900 dark:to-neutral-800  items-center justify-center"></div>
@@ -24,7 +25,14 @@ export const Skeleton = () => (
 
 export const ImageDisplay = ({ image }: { image: string }) => (
     <div className=" flex justify-center bg-slate-700">
-        <Image src={image} alt="Portfolio thumbnail" height={200} width={200} className=" max-w-50 lg:min-w-64  " />
+        <Image
+            src={image}
+            alt="Portfolio thumbnail"
+            height={200}
+            width={200}
+            priority
+            className=" h-auto md:max-w-50 lg:min-w-64   "
+        />
     </div>
 )
 
@@ -35,7 +43,7 @@ export const portfolioList = [
         header: <ImageDisplay image="/images/project-authzzz.jpg" />,
         icon: (
             <div className=" space-x-2">
-                <IconTooltip icons={[nextJs, tailwind, mongoDb]} className=" size-3" />
+                <IconTooltip icons={[nextJs, tailwind, prisma, mongoDb]} className=" size-3" />
             </div>
         ),
     },
@@ -46,7 +54,7 @@ export const portfolioList = [
         header: <ImageDisplay image="/images/project-waze.jpg" />,
         icon: (
             <div className=" space-x-2">
-                <IconTooltip icons={[python, streamlit]} className=" size-3" />
+                <IconTooltip icons={[python, jupyterNotebook]} className=" size-3" />
             </div>
         ),
     },
@@ -57,7 +65,7 @@ export const portfolioList = [
         header: <ImageDisplay image="/images/project-customer-segmentation.jpg" />,
         icon: (
             <div className=" space-x-2">
-                <IconTooltip icons={[python, jupyterNotebook, streamlit, ibmCloud]} className=" size-3" />
+                <IconTooltip icons={[python, django, ibmCloud]} className=" size-3" />
             </div>
         ),
     },
@@ -67,7 +75,7 @@ export const portfolioList = [
         header: <ImageDisplay image="/images/project-portfolio.jpg" />,
         icon: (
             <div className=" space-x-2">
-                <IconTooltip icons={[nextJs, tailwind, mysql, docker]} className=" size-3" />
+                <IconTooltip icons={[nextJs, tailwind, prisma, mysql]} className=" size-3" />
             </div>
         ),
     },
@@ -78,7 +86,7 @@ export const portfolioList = [
         header: <ImageDisplay image="/images/project-tasktickle.jpg" />,
         icon: (
             <div className=" space-x-2">
-                <IconTooltip icons={[nextJs, tailwind, mysql, docker]} className=" size-3" />
+                <IconTooltip icons={[nextJs, tailwind, prisma, mysql, docker]} className=" size-3" />
             </div>
         ),
     },
