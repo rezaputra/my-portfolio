@@ -10,6 +10,7 @@ import { IoLanguage } from "react-icons/io5"
 import { SiFreelancer } from "react-icons/si"
 import { Button } from "@/components/ui/button"
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover"
+import Link from "next/link"
 
 const containerVariant = {
     hidden: { opacity: 1, scale: 0.5 },
@@ -146,10 +147,12 @@ export function AboutSection() {
                             className=" flex justify-center md:justify-start text-foreground"
                             variants={itemVarian}
                         >
-                            <Button className=" hidden lg:block">Download CV</Button>
-                            <Button size={"sm"} className=" block lg:hidden">
-                                Download CV
-                            </Button>
+                            <Link href={"/cv.pdf"} target="_blank">
+                                <Button className=" hidden lg:block">Download CV</Button>
+                                <Button size={"sm"} className=" block lg:hidden">
+                                    Download CV
+                                </Button>
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
