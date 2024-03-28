@@ -17,7 +17,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { IIcon, IconTooltip } from "@/components/landingpage/icon-tooltip"
 
-const containerVariant = {
+export const containerVariant = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
         opacity: 1,
@@ -29,7 +29,7 @@ const containerVariant = {
     },
 }
 
-const itemVarian = {
+export const itemVarian = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,

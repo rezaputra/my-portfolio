@@ -1,7 +1,7 @@
 "use client"
 
 import { IoLogoGoogle } from "react-icons/io"
-import { FaInstagram } from "react-icons/fa"
+import { FaGithub, FaInstagram } from "react-icons/fa"
 
 import { Button } from "../ui/button"
 import { signIn } from "next-auth/react"
@@ -12,7 +12,7 @@ export function Social() {
     const searchParams = useSearchParams()
     const callbackUrl = searchParams.get("callbackUrl")
 
-    const onClick = (provider: "google" | "instagram") => {
+    const onClick = (provider: "google" | "github") => {
         signIn(provider, { callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT })
     }
 
@@ -21,8 +21,8 @@ export function Social() {
             <Button onClick={() => onClick("google")} size="default" variant="outline" className="w-full gap-2 ">
                 <IoLogoGoogle className=" w-5 h-5" /> Google
             </Button>
-            <Button onClick={() => onClick("instagram")} size="default" variant="outline" className=" w-full gap-2">
-                <FaInstagram className=" w-5 h-5" /> Instagram
+            <Button onClick={() => onClick("github")} size="default" variant="outline" className=" w-full gap-2">
+                <FaGithub className=" w-5 h-5" /> Instagram
             </Button>
         </div>
     )

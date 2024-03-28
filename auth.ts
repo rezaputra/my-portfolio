@@ -5,6 +5,7 @@ import type { NextAuthConfig } from "next-auth"
 import NextAuth from "next-auth"
 import credentials from "next-auth/providers/credentials"
 import google from "next-auth/providers/google"
+import github from "next-auth/providers/github"
 import instagram from "next-auth/providers/instagram"
 import { getAccountByUserId } from "./data/account"
 import { getUserByEmail, getUserById } from "./data/user"
@@ -42,7 +43,7 @@ const config = {
         signIn: "/auth/login",
         error: "/auth/error",
     },
-    providers: [credentialsConfig, google, instagram],
+    providers: [credentialsConfig, google, github],
     callbacks: {
         authorized({ request, auth }) {
             const { pathname } = request.nextUrl

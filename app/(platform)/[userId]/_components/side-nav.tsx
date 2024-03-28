@@ -16,7 +16,7 @@ export function SideNav() {
     const userId = params.userId
 
     return (
-        <div className="flex flex-col p-8 justify-between min-w-80 max-w-lg  bg-slate-50 min-h-screen">
+        <div className="flex flex-col p-8 justify-between min-w-80 max-w-lg bg-secondary min-h-screen">
             <div className="flex flex-col space-y-2">
                 <Link href={`/${userId}`}>
                     <Button

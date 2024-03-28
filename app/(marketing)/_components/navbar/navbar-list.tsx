@@ -69,7 +69,7 @@ export function NavbarList() {
                                         >
                                             <IoCodeSlashOutline className="h-6 w-6" />
                                             <div className="mb-2 mt-4 text-lg font-medium">Home</div>
-                                            <p className="text-sm leading-tight text-muted-foreground lg:line-clamp-4 line-clamp-2">
+                                            <p className="text-sm leading-tight text-muted-foreground lg:line-clamp-4 line-clamp-2 font-sans">
                                                 Welcome to the gateway of my digital universe! Embark on a journey
                                                 through the captivating world of my portfolio
                                             </p>
@@ -87,7 +87,7 @@ export function NavbarList() {
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Service</NavigationMenuTrigger>
                         <NavigationMenuContent>
-                            <ul className="grid w-[250px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:grid-cols-2 lg:w-[600px] ">
+                            <ul className="grid w-[250px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:grid-cols-2 lg:w-[600px] font-sans">
                                 {service.map((item, idx) => (
                                     <ListItem key={idx} href={item.href} title={item.title}>
                                         {item.description}
@@ -97,7 +97,7 @@ export function NavbarList() {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/#faq" legacyBehavior passHref>
+                        <Link href="/faq" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>FAQ</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>

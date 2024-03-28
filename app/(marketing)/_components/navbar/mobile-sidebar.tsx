@@ -56,7 +56,7 @@ function MobileSidebar() {
                             <Link href={"/#service"}>Service</Link>
                         </Button>
                         <Button variant="ghost">
-                            <Link href={"/#faq"}>FAQ</Link>
+                            <Link href={"/faq"}>FAQ</Link>
                         </Button>
                     </div>
                     <div className=" flex justify-end">

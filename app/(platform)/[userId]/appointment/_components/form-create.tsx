@@ -74,7 +74,7 @@ export function FormCreate({ userId }: { userId: string | undefined }) {
         resolver: zodResolver(createAppointmentSchema),
         defaultValues: {
             userId: userId,
-            date: new Date(),
+            date: selectDate,
             time: time,
         },
     })
