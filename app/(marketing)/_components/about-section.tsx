@@ -147,7 +147,7 @@ export function AboutSection() {
                             className=" flex justify-center md:justify-start text-foreground"
                             variants={itemVarian}
                         >
-                            <Link href={"/cv.pdf"} target="_blank">
+                            <Link download={"/cv.pdf"} href={"/cv.pdf"} target="_blank">
                                 <Button className=" hidden lg:block">Download CV</Button>
                                 <Button size={"sm"} className=" block lg:hidden">
                                     Download CV

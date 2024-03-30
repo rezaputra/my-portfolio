@@ -45,15 +45,21 @@ const educations: IResume[] = [
 const experience: IResume[] = [
     {
         position: "Fullstack Developer",
-        period: "February 2022 - Present",
+        period: "February 2023 - Present",
         place: "Freelance",
         description: "Working independently on various projects as a fullstack developer.",
     },
     {
-        position: "Data Analysis Intern",
-        period: "August 2021 - January 2022",
+        position: "Data Analyst",
+        period: "August 2021 - January 2023",
         place: "Dwi Media Lestari",
-        description: "Internship position focused on data analysis tasks at Dwi Media Lestari.",
+        description: "Focused on data analysis tasks at Dwi Media Lestari.",
+    },
+    {
+        position: "Cameramen Intern",
+        period: "Mei 2014 - July 2014",
+        place: "SCTV",
+        description: "I helped out with equipment and made sure things looked good on screen.",
     },
 ]
 
