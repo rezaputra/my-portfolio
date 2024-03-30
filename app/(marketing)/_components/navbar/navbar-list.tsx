@@ -28,7 +28,7 @@ export function NavbarList() {
         },
         {
             title: "Resume",
-            href: "#resume",
+            href: "/#resume",
             description: "Unlock the vault to my professional world. Dive into my experiences, skills, and triumphs.",
         },
         {
