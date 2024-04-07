@@ -3,7 +3,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 import { motion } from "framer-motion"
-import { containerVariant, itemVarian } from "../_components/home-introduction"
+import { containerVariant, itemVarian } from "../_components/home/home-introduction"
 
 const questions = [
     {
