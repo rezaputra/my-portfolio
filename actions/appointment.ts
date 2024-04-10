@@ -39,7 +39,7 @@ export async function appointment(values: z.infer<typeof appointmentSchema>, act
     const convertedDate = setHours(date, parseInt(time))
 
     const checkUncompletedAppointment = await db.appointment.findFirst({
-        where: { userId, status: { in: [AppointmentStatus.WAITING, AppointmentStatus.CONFIRM] } },
+        where: { userId, status: { in: ["WAITING", "CONFIRM"] } },
     })
 
     if (checkUncompletedAppointment)
