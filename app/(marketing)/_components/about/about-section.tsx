@@ -123,7 +123,7 @@ export function AboutSection() {
                                 <div className=" flex space-x-2  items-center">
                                     <MdAttachEmail className=" flex md:hidden size-4" />
                                     <span className=" hidden md:flex">: </span>
-                                    <span className=" line-clamp-1">rezaputramardiansyah@gmail.com</span>
+                                    <span className=" line-clamp-1">rzputradev@gmail.com</span>
                                 </div>
                                 <div className=" flex space-x-2  items-center">
                                     <FaHome className=" flex md:hidden size-4" />

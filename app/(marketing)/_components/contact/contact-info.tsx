@@ -35,9 +35,7 @@ export function ContactInfo() {
                     </div>
                     <div>
                         <span>Email</span>
-                        <p className=" font-sans text-muted-foreground text-ellipsis truncate">
-                            rezaputramardiansyah@gmail.com
-                        </p>
+                        <p className=" font-sans text-muted-foreground text-ellipsis truncate">rzputradev@gmail.com</p>
                     </div>
                 </div>
 

@@ -51,7 +51,7 @@ const experience: IResume[] = [
     },
     {
         position: "Data Scientist Intern",
-        period: "Feb 2022 - Aug 2022",
+        period: "Feb 2022 - Jul 2022",
         place: "Dwi Media Lestari",
         description: "Focused on data science tasks at Dwi Media Lestari.",
     },
