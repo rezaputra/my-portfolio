@@ -7,7 +7,6 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 import * as z from "zod"
 import { AuthError } from "next-auth"
 import { signIn } from "@/auth"
-import { revalidatePath } from "next/cache"
 
 export async function login(values: z.infer<typeof loginSchema>, callbackUrl?: string | null) {
     const validateFields = loginSchema.safeParse(values)
